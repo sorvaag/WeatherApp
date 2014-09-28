@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Show us the weather!</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Example show us the weather app for Australian Capital Cities">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="weather.css" rel="stylesheet" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+</head>
+<body>
+    <div id="header-content">
+        <div id="locate-me">
+            <button class="js-geolocation">Use Your Location</button>
+        </div>
+        <div id="search-form">
+            <form action="/" method="get">
+                <input id="search-location" name="location">
+                <input id="search-submit" type="submit" value="Go!">
+            </form>
+        </div>
+    </div>
+    <div id="weather"></div>
+    
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script async src="http://codepen.io/assets/embed/ei.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
+    <script src="weather.js"></script>
+</body>
+</html>
