@@ -62,39 +62,39 @@ function loadWeather(location, woeid) {
             /* update the page background */
             switch (weather.region.toLowerCase()) {
                 case ("qld"):
-                    $("html").css("background-image", "url(https://s3-ap-southeast-2.amazonaws.com/sorvaag/images/qld.jpg)");
+                    $("html").css("background-image", "url(images/qld.jpg)");
                     break;
 
                 case ("nsw"):
-                    $("html").css("background-image", "url(https://s3-ap-southeast-2.amazonaws.com/sorvaag/images/nsw.jpg)");
+                    $("html").css("background-image", "url(images/nsw.jpg)");
                     break;
 
                 case ("act"):
-                    $("html").css("background-image", "url(https://s3-ap-southeast-2.amazonaws.com/sorvaag/images/act.jpg)");
+                    $("html").css("background-image", "url(images/act.jpg)");
                     break;
 
                 case ("vic"):
-                    $("html").css("background-image", "url(https://s3-ap-southeast-2.amazonaws.com/sorvaag/images/vic.jpg)");
+                    $("html").css("background-image", "url(images/vic.jpg)");
                     break;
 
                 case ("sa"):
-                    $("html").css("background-image", "url(https://s3-ap-southeast-2.amazonaws.com/sorvaag/images/sa.jpg)");
+                    $("html").css("background-image", "url(images/sa.jpg)");
                     break;
 
                 case ("wa"):
-                    $("html").css("background-image", "url(https://s3-ap-southeast-2.amazonaws.com/sorvaag/images/wa.jpg)");
+                    $("html").css("background-image", "url(images/wa.jpg)");
                     break;
 
                 case ("nt"):
-                    $("html").css("background-image", "url(https://s3-ap-southeast-2.amazonaws.com/sorvaag/images/nt.jpg)");
+                    $("html").css("background-image", "url(images/nt.jpg)");
                     break;
 
                 case ("tas"):
-                    $("html").css("background-image", "url(https://s3-ap-southeast-2.amazonaws.com/sorvaag/images/tas.jpg)");
+                    $("html").css("background-image", "url(images/tas.jpg)");
                     break;
 
                 default:
-                    $("html").css("background-image", "url(https://s3-ap-southeast-2.amazonaws.com/sorvaag/images/vic.jpg)");
+                    $("html").css("background-image", "url(images/vic.jpg)");
                     break;
             }
 
