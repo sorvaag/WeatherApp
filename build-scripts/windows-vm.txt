@@ -1,10 +1,31 @@
 #ps1_sysnative
+Set-ExecutionPolicy Unrestricted
+
+# install IIS
 Add-WindowsFeature -Name Web-Common-Http,Web-Http-Redirect,Web-Asp-Net,Web-IP-Security,Web-Stat-Compression,Web-Dyn-Compression,Web-Http-Logging,Web-Request-Monitor,Web-Mgmt-Console
 
-# delete any default content
-cd /inetpub/wwwroot
-rm *.* -r
+# install Chocolatey
+Invoke-Expression ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))
 
-Invoke-WebRequest https://s3-ap-southeast-2.amazonaws.com/sorvaag-weather/index.html -OutFile c:\inetpub\wwwroot\index.html
-Invoke-WebRequest https://s3-ap-southeast-2.amazonaws.com/sorvaag-weather/weather.css -OutFile c:\inetpub\wwwroot\weather.css
-Invoke-WebRequest https://s3-ap-southeast-2.amazonaws.com/sorvaag-weather/weather.js -OutFile c:\inetpub\wwwroot\weather.js
+# install git for Windows using Chocolatey
+choco install git
+
+# add chocolatey and git to the path
+$env:Path += ";C:\Chocolatey\bin\;C:\Program Files (x86)\Git\bin"
+
+# clone the git repo
+cd /inetpub
+mkdir tmp-weather
+cd tmp-weather
+git clone https://github.com/sorvaag/WeatherApp.git
+
+# delete any content in the default IIS site
+Remove-Item C:\inetpub\wwwroot\* -Force -Recurse
+
+# copy the directory to the default IIS location
+$source = "c:\inetpub\tmp-weather\WeatherApp\src\*"
+$destination = "c:\inetpub\wwwroot"
+Copy-Item $source $destination -recurse
+
+# TODO: clean up the clone directory
+# Remove-Item C:\inetpub\TMP-weather -Force -Recurse
