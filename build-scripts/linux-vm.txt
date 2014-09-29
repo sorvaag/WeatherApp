@@ -1,0 +1,27 @@
+#!/bin/bash
+passwd ubuntu <<EOF
+Telstra!
+Telstra!
+EOF
+
+# execute as ROOT
+sudo -i
+
+# get a list of package updates
+apt-get update
+
+# install apache
+apt-get install apache2 -y
+
+# install the git client
+apt-get install git -y
+
+# download the three default pages
+cd /root
+
+# clone the git repo
+git clone https://github.com/sorvaag/WeatherApp.git
+
+# copy the new web files
+cd WeatherApp/src
+mv * /var/www/html

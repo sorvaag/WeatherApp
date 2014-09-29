@@ -1,0 +1,10 @@
+#ps1_sysnative
+Add-WindowsFeature -Name Web-Common-Http,Web-Http-Redirect,Web-Asp-Net,Web-IP-Security,Web-Stat-Compression,Web-Dyn-Compression,Web-Http-Logging,Web-Request-Monitor,Web-Mgmt-Console
+
+# delete any default content
+cd /inetpub/wwwroot
+rm *.* -r
+
+Invoke-WebRequest https://s3-ap-southeast-2.amazonaws.com/sorvaag-weather/index.html -OutFile c:\inetpub\wwwroot\index.html
+Invoke-WebRequest https://s3-ap-southeast-2.amazonaws.com/sorvaag-weather/weather.css -OutFile c:\inetpub\wwwroot\weather.css
+Invoke-WebRequest https://s3-ap-southeast-2.amazonaws.com/sorvaag-weather/weather.js -OutFile c:\inetpub\wwwroot\weather.js
